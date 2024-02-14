@@ -23,7 +23,8 @@ public class BMIController {
                          @RequestParam("weight") double weightInPounds,
                          Model model) {
         double bmi = weightInPounds / (heightInInches * heightInInches) * 703;
-        model.addAttribute("bmi", bmi);
+        double roundedbmi = Math.round(bmi * 100.0) / 100.0;
+        model.addAttribute("bmi", roundedbmi);
         return "result";
     }
 }
